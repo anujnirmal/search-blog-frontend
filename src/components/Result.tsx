@@ -105,10 +105,12 @@ const Result = () => {
     </div>
     <div className="mt-4 w-full">
       <div className="flex justify-center flex-wrap gap-2">
-        {loading && <Spinner />}
-      {blogs.map(blog => (
-          <BlogCard title={blog.title} image={blog.image} description={blog.body.substring(0, 100)} date={blog.date}  category={blog.category}/>
-        ))}
+        {loading ? <Spinner />: (
+           <>{blogs.map(blog => (
+            <BlogCard title={blog.title} image={blog.image} description={blog.body.substring(0, 100)} date={blog.date}  category={blog.category}/>
+          ))}</>
+        )}
+     
       </div>
     </div>
     </>
